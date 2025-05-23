@@ -1,0 +1,470 @@
+/* Eric Meyer's CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* 設定 HTML5 的 display 類型為 block */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* 設定表格的邊界 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*--------Custom Style---------*/
+:root {
+  --menu-count:4;
+}
+
+html {
+  scroll-padding-top: 100px; /* This should match the height of your fixed header */
+}
+
+body {
+  height:100%;
+  background-color:#ffe6de;
+  position: relative
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+.header-main {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+}
+
+.header-main nav {
+  width:100%;
+  background-color:#355975;
+  height:100px;
+  display: flex;
+}
+
+
+.header-main ul{
+  display: flex;
+  height: 100%;
+  align-self: center;
+  list-style: none;;
+}
+
+.header-main ul li {
+  position:relative;
+}
+
+.header-main ul li a{
+  background-color: #355975;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  height: 100%;
+  color: white;
+
+  font-size: 24px;
+  cursor: pointer;
+  transition: all ease-in-out 400ms;
+}
+
+.header-main ul li a:hover{
+  background-color:#c1d4e3;
+  color: black;
+}
+
+.header-main ul li ul{
+  visibility:hidden;
+  opacity: 0;
+  display: block;
+  position:absolute;
+  transition: all ease-in-out 400ms;
+}
+
+
+
+.header-main ul li ul li a {
+  white-space: nowrap;
+  height: 60px;
+}
+
+ul li:hover>ul {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+
+
+.header-main .logo-wrapper{
+  display: flex;
+  justify-content: center;
+  /*border-right:3px solid #c1d4e3;*/
+  /*background-color:#104269;*/
+  background-color: white;
+  height:100px;
+  width:280px;
+  cursor: pointer;
+}
+
+
+.header-main .logo-wrapper img {
+  line-height: 100px;
+}
+
+
+.banner {
+  width:100%;
+  height:auto;
+  margin: 0 0 20px 0;
+
+}
+
+.area-title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+}
+
+
+.area4 h3{
+  font-weight: bold;
+}
+
+
+h1 {
+  font-size: 44px;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 46px;
+}
+h3 {
+  font-size: 32px;
+  line-height: 46px;
+  margin: 30px 0 10px 0;
+}
+
+#previous-version-h1 {
+  scroll-margin-top: 100px;
+}
+
+p {
+  font-size: 24px;
+
+  /*text-indent: 48px;*/
+}
+
+a {
+  text-decoration: none;
+}
+
+.area1 {
+  grid-area: area1;
+}
+
+.area2 {
+  grid-area: area2;
+}
+
+.area3 {
+  grid-area: area3;
+}
+
+.area4 {
+  grid-area: area4;
+}
+
+.area-title {
+  margin: 0 0 30px 0;
+}
+
+.grid {
+  width:70%;
+  margin: 0 auto;
+  color:black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 40px;
+  grid-template-areas: 
+    "area1 area2 area3"
+    "area4 area4 area4";
+  background-color: white;
+  padding: 40px;
+}
+
+
+
+/*Sub Pages*/
+.content-wrapper {
+  width: 70%;
+  min-height: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: white;
+}
+
+#faq-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content-wrapper a {
+  color: black;
+}
+
+.content-wrapper h3 {
+  margin: 0 0 0 32px;
+  display: list-item;
+  list-style-type: square;
+
+}
+
+.content-wrapper a:hover {
+  color: blue;
+}
+
+.content-wrapper h3::marker {
+  font-size: 32px;
+}
+
+/* Download page */
+.content-wrapper-download {
+  width: 70%;
+  height: 1200px;
+  margin: 0 auto;
+  padding:40px;
+  background-color: white;
+}
+
+.latest-version-wrapper {
+  margin: 0 0 80px 0;
+}
+
+.button {
+  display: inline-block;
+  color: #0b4080;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 50px;
+  padding: 0 12px;
+  border-style: solid;
+  border-color: #0b4080;
+  border-width: 3px;
+  border-radius: 10px;
+  transition: all ease-in-out 400ms;
+}
+
+.button:hover {
+  color: white;
+  background-color: #0b4080;
+  
+}
+
+/* Form */
+form {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 40px 0 0 0;
+  padding: 40px;
+  row-gap: 20px;
+  border: solid 3px black;
+  border-radius: 20px;
+}
+
+form label {
+  width:100%;
+  font-size: 24px;
+
+}
+form select, input {
+  width:200px;
+  font-size: 24px;
+}
+
+form textarea {
+  min-width: 100%;
+  height: 200px;
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    scroll-padding-top: 0;
+  }
+
+
+  /* Add a class for when the menu is open */
+  .header-main.mobile-menu-open {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+  }
+
+  .mobile-menu-btn img{
+    height: 80%;
+    align-self: center;
+
+  }
+  
+  .header-main {
+    display: none;
+    height: 100vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .header-main nav {
+    width: 100%;
+    height: 70%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .header-main .logo-wrapper{
+    height: 30%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .header-main ul {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-between;
+  }
+  
+   .header-main ul li {
+    width: 100%;
+    height: calc(100% / var(--menu-count));
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    transition: all ease-in-out 400ms;
+    box-sizing: border-box;
+  }
+  
+  .header-main ul li a {
+    font-size: 2.5rem; 
+  }
+
+  .header-main nav {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .header-main ul li ul {
+    display: none;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+  }
+
+  .header-main ul li ul li{
+    height: fit-content;
+    display: block;
+  }
+
+  .header-main ul li:focus>ul,
+  .header-main ul li:hover>ul {
+    display: flex;
+    visibility: visible;
+    opacity:1;
+  }
+  
+  .grid {
+  gap: 30px;
+  grid-template-columns: 1fr;
+  grid-template: 
+    "area1"
+    "area2"
+    "area3"
+    "area4";
+
+  }
+
+  form {
+    align-items: center;
+    width: calc(100% - 40px - 6px);/* 100% - (2 * padding) - (2 * border) of form*/
+    padding: 20px;
+    margin:0;
+  }
+  form textarea {
+    width: 100%;
+  }
+
+  #faq-content-wrapper{
+  
+  }
+
+  #previous-version-h1 {
+    scroll-margin-top: 0;
+  }
+}
