@@ -20,6 +20,7 @@
 
             // --- 2. Add event listener for language change ---
             languageSelect.addEventListener('change', function() {
+                let newUrl;
                 const selectedLang = this.value; // Get the chosen language code (e.g., 'es')
 
                 // Get the current page's path without the language prefix
@@ -32,10 +33,10 @@
 
                 // Construct the new URL
                 if (pathSegments.length > 2) {
-                  const newUrl = 	`../`+ `${selectedLang}` + `/` + `${pagePathWithoutLang}`;
+                  newUrl = 	`../`+ `${selectedLang}` + `/` + `${pagePathWithoutLang}`;
                   console.log(newUrl);
                 } else {
-                  const newUrl = 	`language/` + `${selectedLang}` + `/index.html`;
+                  newUrl = 	`language/` + `${selectedLang}` + `/index.html`;
                   console.log(newUrl);
                 }
 
