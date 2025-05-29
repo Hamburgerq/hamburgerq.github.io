@@ -45,7 +45,7 @@ table {
 
 html {
   /*scroll-padding-top: 100px;  This should match the height of your fixed header */
-  font-family:"Inter" format("truetype");
+  font-family:"Inter";
   overflow-y: scroll;
 }
 
