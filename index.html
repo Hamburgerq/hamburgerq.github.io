@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free audio volume adjust application.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VolumeUp</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="images/logo.png" as="image" width="280px" height="100px">
+    <link rel="preload" href="/fonts/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf">
+
+    <link rel="alternate" href="/language/en" hreflang="en" />
+    <link rel="alternate" href="/language/tc" hreflang="tc" />
+  </head>
+  <body>
+    <div class="mobile-menu-btn">
+      <img src="images/burger-bar.png" alt="mobile-menu-btn">
+    </div>
+    <header class="header-main">
+      <div class="logo-wrapper">
+        <a href="language/en/index.html"><img src="images/logo.png" alt="VolumeUp Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="language/en/index.html">Home</a></li>
+          <li><a href="language/en/download.html">Download</a></li>
+          <li><a href="language/en/news.html">News</a></li>
+          <li><a href="language/en/faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="language-selector">
+        <label for="language-select">Language:</label>
+        <select id="language-select">
+            <option value="en">English</option>
+            <option value="tc">繁體中文</option>
+        </select>
+      </div>
+    </header>
+    <div class="banner">
+      <img src="images/banner.jpg" alt="Audio Editor Introduction">
+    </div>
+      <div class="grid">
+        <div class="area1">
+          <div class="area-title">
+            <img src="images/easy.png" alt="easy icon">
+            <h2>
+              Easy
+            </h2>
+          </div>
+          <p>
+            Easy to adjusting audio volume and convert into various format.
+          </p>
+        </div>
+        <div class="area2">
+           <div class="area-title">
+            <img src="images/simple.png" alt="simple icon">
+            <h2>
+              Simple
+            </h2>
+          </div>
+          <p>
+            No fancy features, aiming purely for simple functionality.
+          </p>
+        </div>
+        <div class="area3">
+          <div class="area-title">
+            <img src="images/free.png" alt="free icon">
+            <h2>
+              Free
+            </h2>
+          </div>
+          <p>
+            Free for everyone willing to try out.
+          </p>
+        </div>
+        <div class="area4">
+          <div class="area-title">
+            <img src="images/functions.png" alt="functions icon">
+            <h2>
+              Functions
+            </h2>
+          </div>
+          <h3>
+              - Multiple audio files adjustment
+          </h3>
+          <p>
+            Analyze volume of imported files in real time, batch adjust to target volume. 
+          </p>
+
+          <h3>
+              - Support common used file format
+          </h3>
+          <p>
+            Support input & output formats: WAV, MP3, FLAC, AIFF, AAC, OGG, MP4, MOV, MKV
+          </p>
+          <h3>
+              - Audio clipping prevention
+          </h3>
+          <p>
+            Prevent audio from clipping while boosting volume, while clipping sets to the maximum non clipping value.
+          </p>
+          <h3>
+              - Customization
+          </h3>
+          <p>
+            Support dark theme, multiple languages, changable loudness unit(LUFS or dB), target volume memorization.
+          </p>
+        </div>
+    
+  </body>
+
+<script src="js/mobile-nav.js"></script>
+<script src="js/multi-lang.js"></script>
+</html>

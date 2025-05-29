@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free audio volume adjust application.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VolumeUp</title>
+
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="preload" href="../../images/logo.png" as="image" width="280px" height="100px">
+    <link rel="preload" href="../../fonts/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+
+    <link rel="alternate" href="../en" hreflang="en" />
+  </head>
+  <body>
+    <div class="mobile-menu-btn">
+      <img src="../../images/burger-bar.png" alt="mobile-menu-btn">
+    </div>
+    <header class="header-main">
+      <div class="logo-wrapper">
+        <a href="index.html"><img src="../../images/logo.png" alt="VolumeUp Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="download.html">下載</a></li>
+          <li><a href="news.html">最新消息</a></li>
+          <li><a href="faq.html">常問問題</a></li>
+        </ul>
+      </nav>
+      <div class="language-selector">
+        <label for="language-select">語言:</label>
+        <select id="language-select">
+            <option value="en">English</option>
+            <option value="tc">繁體中文</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="content-wrapper" id="faq-content-wrapper">
+        
+        <div class="grid-faq">
+          <h1>FAQ</h1>
+          <div>
+            <h3>
+              Q: 為什麼免費?
+            </h3>
+            <p>
+              起初寫來自己使用，但何不分享給大家一起用。
+            </p>
+          </div>
+          <div>
+            <h3>
+              Q: 什麼是LUFS?
+            </h3>
+            <p>
+              可以將LUFS(Loudness units relative to full scale)想成是相對基準值(0LUFS)的相對值，0 LUFS表示最大可產生的音量，所以任意音量均小於0，故音訊檔LUFS均為負數。
+            </p>
+          </div>
+          <div>
+            <h3>
+              Q: VolumeUp中使用的單位dB是什麼?
+            </h3>
+            <p>
+              這裡使用的dB和日常生活中使用的音量單位dBA不同，因為沒有公式可以直接將LUFS轉換為dBA，此處dB僅用於讓音量以使用者熟悉的單位使用，所以設定0LUFS等於103dB來讓音量值平移為正數。<br>
+之後或許會考慮加入自訂平移數值。
+            </p>
+          </div>
+        </div>
+      </div>
+
+   </div>
+  </body>
+<script src="../../js/mobile-nav.js"></script>
+<script src="../../js/multi-lang.js"></script>
+</html>

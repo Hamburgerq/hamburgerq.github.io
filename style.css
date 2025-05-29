@@ -1,0 +1,538 @@
+/* Eric Meyer's CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* 設定 HTML5 的 display 類型為 block */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/* 設定表格的邊界 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*--------Custom Style---------*/
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-VariableFont_opsz,wght.ttf") format(truetype);
+  font-display: optional;
+}
+
+:root {
+  --menu-count:4;
+}
+
+html {
+  /*scroll-padding-top: 100px;  This should match the height of your fixed header */
+  font-family:"Inter" format("truetype");
+  overflow-y: scroll;
+}
+
+body {
+  height:100%;
+  background-color:#141a2e;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0 0 0;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+
+.mobile-menu-btn {
+  display: none;
+}
+
+.header-main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+
+
+
+.header-main .logo-wrapper{
+  display: flex;
+  justify-content: center;
+  /*border:3px solid #c1d4e3;*/
+  /*background-color:#104269;*/
+  background-color: white;
+  height:100px;
+  width:280px;
+  cursor: pointer;
+}
+
+
+.header-main .logo-wrapper img {
+  line-height: 100px;
+}
+
+.header-main nav {
+  width:85%;
+  background-color:#355975;
+  height:100px;
+  display: flex;
+}
+
+.header-main nav ul{
+  height: 100%;
+  display: flex;
+  list-style: none;;
+}
+
+.header-main nav ul li {
+  position:relative;
+}
+
+.header-main nav ul li a{
+  background-color: #355975;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  height: 100%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all ease-in-out 400ms;
+}
+
+.header-main nav ul li a:hover{
+  background-color:#c1d4e3;
+  color: black;
+}
+
+
+ul li:hover>ul {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+
+.language-selector {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color:#355975;
+  color: white;
+  font-size: 20px;
+}
+
+.language-selector select {
+  font-size: 16px;
+}
+/* End of header */
+
+.banner {
+  width:100%;
+  height: auto;
+  margin: 0 0 20px 0;
+  display: flex;
+}
+
+.banner img {
+  object-fit: fill;
+}
+
+.area-title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+}
+
+
+.area4 h3{
+  font-weight: bold;
+}
+
+
+h1 {
+  font-size: 40px;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 46px;
+}
+h3 {
+  font-size: 28px;
+  line-height: 46px;
+  margin: 30px 0 10px 0;
+}
+
+#previous-version-h1 {
+  scroll-margin-top: 100px;
+}
+
+p {
+  font-size: 20px;
+
+  /*text-indent: 48px;*/
+}
+
+a {
+  text-decoration: none;
+}
+
+.area1 {
+  grid-area: area1;
+}
+
+.area2 {
+  grid-area: area2;
+}
+
+.area3 {
+  grid-area: area3;
+}
+
+.area4 {
+  grid-area: area4;
+}
+
+.area-title {
+  margin: 0 0 30px 0;
+}
+
+.grid {
+  width:70%;
+  margin: 0 auto;
+  color:black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 5px;
+  grid-template-areas: 
+    "area1 area2 area3"
+    "area4 area4 area4";
+  
+}
+
+.grid > div {
+  padding: 40px;
+  background-color: white;
+}
+
+/*Sub Pages*/
+.content-wrapper {
+  width: 70%;
+  min-height: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: white;
+}
+
+
+
+#faq-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: auto; /* for container fit content height */
+}
+
+#faq-content-wrapper form {
+  display: none;
+}
+
+
+.content-wrapper a {
+  color: black;
+}
+
+.content-wrapper h3 {
+  /*margin: 0 0 0 32px;
+  display: list-item;
+  list-style-type: square;*/
+
+}
+
+.content-wrapper a:hover {
+  color: blue;
+}
+
+.content-wrapper h3::marker {
+  font-size: 32px;
+}
+
+/* Download page */
+.content-wrapper-download {
+  width: 70%;
+  height: 1200px;
+  margin: 0 auto;
+  padding:40px;
+  background-color: white;
+}
+
+.latest-version-wrapper {
+  margin: 0 0 80px 0;
+}
+
+.button {
+  display: inline-block;
+  color: #0b4080;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 50px;
+  padding: 0 12px;
+  border-style: solid;
+  border-color: #0b4080;
+  border-width: 3px;
+  border-radius: 10px;
+  transition: all ease-in-out 400ms;
+}
+
+.button:hover {
+  color: white;
+  background-color: #0b4080;
+  
+}
+
+/* News */
+.expand-block {
+  --suffix-text: "\25B6    ";
+}
+
+
+.expand-block h3 {
+  --suffix-text: "\25B6    ";
+}
+.expand-block h3::before {
+  content: var(--suffix-text);
+  white-space: pre;
+}
+
+
+.expand-block p {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all linear 400ms;
+}
+.expand-content {
+  opacity: 1; /* Make it visible */
+  max-height: 500px !important;
+}
+
+/* FAQ*/
+
+.grid-faq {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+
+  }
+
+
+/* Form */
+form {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 40px 0 0 0;
+  padding: 40px;
+  row-gap: 20px;
+  border: solid 3px black;
+  border-radius: 20px;
+}
+
+form label {
+  width:100%;
+  font-size: 24px;
+
+}
+form select, input {
+  width:200px;
+  font-size: 24px;
+}
+
+form textarea {
+  min-width: 100%;
+  height: 200px;
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    scroll-padding-top: 0;
+  }
+  body {
+    padding: 0 20px;
+  }
+
+  /* Add a class for when the menu is open */
+  .header-main.mobile-menu-open {
+    display: flex; /* Ensure it's a flex container when open */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background-color: #355975;
+    flex-direction: column; /* Stack logo, nav, and language selector vertically */
+    justify-content: space-between; /* Distribute space between them */
+    align-items: center; /* Center horizontally in the mobile menu */
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+  }
+
+  .mobile-menu-btn img{
+    height: 80%;
+    align-self: center;
+
+  }
+
+  /* Ensure the header itself is hidden when not in mobile-menu-open state */
+  .header-main:not(.mobile-menu-open) {
+    display: none;
+  }
+
+  .header-main nav {
+    width: 100%;
+    height: 70%; /* Allocate space for navigation */
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0;
+    justify-content: flex-start;
+    overflow-y: scroll; /* Keep scroll for long menus */
+    overflow-x: hidden;
+  }
+
+  .header-main .logo-wrapper{
+    height: 15%; /* Adjust height for logo */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-main ul {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center; /* Center horizontally for mobile */
+    align-content: stretch; /* Stretch items to fill available space */
+    justify-content: flex-start; /* Align nav items to the top of the nav area */
+  }
+
+   .header-main ul li {
+    width: 100%;
+    height: calc(100% / var(--menu-count));
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    transition: all ease-in-out 400ms;
+    box-sizing: border-box;
+  }
+
+  .header-main ul li a {
+    font-size: 2.5rem;
+  }
+
+  .language-selector {
+    /* Critical: Ensure it's always displayed in the mobile view when header is open */
+    display: flex !important;
+    width: 100%; 
+    height: 15%; 
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
+    background-color:#355975;
+    color: white;
+    font-size: 24px;
+    border-top: 1px solid #ddd; /* Add a separator */
+  }
+
+
+  .language-selector select {
+    font-size: 16px;
+  }
+
+  .content-wrapper {
+    width: 80%;
+    height: auto;
+  }
+
+  .grid {
+  gap: 30px;
+  grid-template-columns: 1fr;
+  grid-template:
+    "area1"
+    "area2"
+    "area3"
+    "area4";
+
+  }
+
+  form {
+    align-items: center;
+    width: calc(100% - 40px - 6px);/* 100% - (2 * padding) - (2 * border) of form*/
+    padding: 20px;
+    margin:0;
+  }
+  form textarea {
+    width: 100%;
+  }
+
+  #previous-version-h1 {
+    /*scroll-margin-top: 0;*/
+  }
+}

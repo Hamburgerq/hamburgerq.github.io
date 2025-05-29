@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free audio volume adjust application.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VolumeUp</title>
+
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="preload" href="../../images/logo.png" as="image" width="280px" height="100px">
+    <link rel="preload" href="../../fonts/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+    <link rel="alternate" href="../tc" hreflang="tc" />
+  </head>
+  <body>
+    <div class="mobile-menu-btn">
+      <img src="../../images/burger-bar.png" alt="mobile-menu-btn">
+    </div>
+    <header class="header-main">
+      <div class="logo-wrapper">
+        <a href="index.html"><img src="../../images/logo.png" alt="VolumeUp Logo"></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="download.html">Download</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="language-selector">
+        <label for="language-select">Language:</label>
+        <select id="language-select">
+            <option value="en">English</option>
+            <option value="tc">繁體中文</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="content-wrapper" id="faq-content-wrapper">
+      <div>
+        <h1>FAQ</h1>
+        <h3>
+          Q: Why free?
+        </h3>
+        <p>
+          Initially this app is aiming for self use, but why not share with others.
+        </p>
+        <h3>
+          Q: What is LUFS?
+        </h3>
+        <p>
+          Imagine LUFS(Loudness units relative to full scale) being a relative volume from the baseline(0 LUFS)，while 0 LUFS represent the loudest possible signal, so any other signal should be weaker than 0 LUFS, thus the volume of your audio is negative LUFS.
+        </p>
+        <h3>
+          Q: What is the unit dB used in VolumeUp?
+        </h3>
+        <p>
+          The dB used here isn't the one we measured in our daily life with unit dBA, here the dB is only for user to  easily understand while determine target value. Since there is no direct transformation formula to convert LUFS to dBA, so we set 0 LUFS to be equal to 103dB in order to shift the value of volume to the range we familiar with.<br>
+Maybe custom shifting value will be a feature in the future.
+        </p>
+      </div>
+      <form action="mailto:" method="post" enctype="text/plain">
+        <div>
+          <label for "suggest-type">Suggestion type:</label>
+          <select id="suggest-type">
+            <option value="report-error">Report error</option>
+            <option value="wish-for-new-features">Wish for new features</option>
+            <option value="other">Other</option>
+          </select><br>
+       </div>
+       <div>
+          <label>Suggestion:</label><br>
+          <textarea name="suggestion" maxlength="500"></textarea>
+       </div>
+    
+       <div><input type="submit" value="Submit"></div>
+     </form>
+   </div>
+  </body>
+<script src="../../js/mobile-nav.js"></script>
+<script src="../../js/multi-lang.js"></script>
+</html>
