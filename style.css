@@ -159,13 +159,15 @@ ul li:hover>ul {
 /* End of header */
 
 .banner {
-  width:100%;
+  max-width:100%;
   height: auto;
   margin: 0 0 20px 0;
   display: flex;
 }
 
 .banner img {
+  width:100%;
+  height: auto;
   object-fit: fill;
 }
 
