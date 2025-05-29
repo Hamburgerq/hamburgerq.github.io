@@ -62,6 +62,7 @@ html, body {
   overflow-x: hidden;
 }
 
+
 body.no-scroll {
   overflow: hidden;
 }
@@ -242,7 +243,6 @@ a {
   grid-template-areas: 
     "area1 area2 area3"
     "area4 area4 area4";
-  
 }
 
 .grid > div {
@@ -391,6 +391,13 @@ form textarea {
   font-size: 24px;
 }
 
+@media only screen and (max-width:1024px) {
+  .grid > div { 
+    padding: 10px; /* Keep your existing padding */
+
+  }
+}
+
 @media only screen and (max-width: 768px) {
   html {
     scroll-padding-top: 0;
@@ -522,6 +529,14 @@ form textarea {
   margin: 0 auto;
   }
 
+  .grid > div { 
+    padding: 20px 10px 20px 10px; /* Keep your existing padding */
+    text-align: center;
+  }
+  .area-title {
+    justify-content: center;
+    gap: 20px;
+  }
   form {
     align-items: center;
     width: calc(100% - 40px - 6px);/* 100% - (2 * padding) - (2 * border) of form*/
