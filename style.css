@@ -35,7 +35,7 @@ table {
 /*--------Custom Style---------*/
 @font-face {
   font-family: "Inter";
-  src: url("./fonts/Inter-VariableFont_opsz,wght.ttf") format(truetype);
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format(truetype);
   font-display: optional;
 }
 
