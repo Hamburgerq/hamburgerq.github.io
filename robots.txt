@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
-Sitemap: https://cef2dca9.hamburgerq-github-io.pages.dev/
+Sitemap: https://hamburgerq.github.io/sitemap.xml
