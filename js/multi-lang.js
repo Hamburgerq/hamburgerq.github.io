@@ -3,13 +3,13 @@
             // --- 1. Set the initial combobox selection based on the current URL ---
             // Get the language prefix from the current URL (e.g., 'en', 'es', 'fr')
             // Assumes URL structure like /en/page, /es/page
-            const currentPathname = window.location.pathname;
-            const pathSegments = currentPathname.split('/'); // ["", "en", "about"]
-            const currentLangPrefix = pathSegments[2]; // "en"
+            const currentPathname = window.location.pathname; // /language/en/index.html
+            const pathSegments = currentPathname.split('/');  //["", "language", "en", "index.html"]
+            const currentLangPrefix = pathSegments[2];  // "en"
 
-            console.log(currentPathname)
-            console.log(pathSegments)
-            console.log(currentLangPrefix)
+            //console.log(currentPathname)
+            //console.log(pathSegments)
+            //console.log(currentLangPrefix)
             // Set the combobox value to the current language
             if (currentLangPrefix && languageSelect.querySelector(`option[value="${currentLangPrefix}"]`)) {
                 languageSelect.value = currentLangPrefix;
@@ -34,10 +34,10 @@
                 // Construct the new URL
                 if (pathSegments.length > 2) {
                   newUrl = 	`../`+ `${selectedLang}` + `/` + `${pagePathWithoutLang}`;
-                  console.log(newUrl);
+                  //console.log(newUrl);
                 } else {
                   newUrl = 	`language/` + `${selectedLang}` + `/index.html`;
-                  console.log(newUrl);
+                  //console.log(newUrl);
                 }
 
                 // Redirect the browser to the new URL
