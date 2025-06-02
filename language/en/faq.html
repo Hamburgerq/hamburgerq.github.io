@@ -73,7 +73,7 @@ Maybe custom shifting value will be a feature in the future.
        </div>
        <div>
           <label>Suggestion:</label><br>
-          <textarea name="suggestion" maxlength="500" id="suggest-text"></textarea>
+          <textarea name="suggestion" id="suggestion" maxlength="500"></textarea>
        </div>
     
        <div><input type="submit" value="Submit"></div>
@@ -89,8 +89,8 @@ Maybe custom shifting value will be a feature in the future.
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         var formData = new FormData(form);
-        var stype = document.querySelector("suggest-type").checked;
-        var stext = document.querySelector("suggest-text").checked;
+        var stype = document.querySelector("#suggest-type").checked;
+        var stext = document.querySelector("#suggestion").checked;
 
         if (stype) {
           formData.append("suggest-type", "Yes");
