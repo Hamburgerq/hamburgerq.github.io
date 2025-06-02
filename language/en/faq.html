@@ -93,7 +93,8 @@ Maybe custom shifting value will be a feature in the future.
         e.preventDefault();
         var formData = new FormData(form);
 
-        fetch(scriptURL, { method: "POST", body: formData, redirect: "follow"})
+        fetch(scriptURL, { method: "POST", body: formData, redirect: "follow", headers: {
+        "Content-Type": "text/plain;charset=utf-8",},})
           .then((response) => {
             swal("Done", "Submitted Successfully.", "success");
           })
