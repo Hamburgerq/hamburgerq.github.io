@@ -92,19 +92,6 @@ Maybe custom shifting value will be a feature in the future.
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         var formData = new FormData(form);
-        var stype = document.querySelector("#suggest-type").checked;
-        var stext = document.querySelector("#suggestion").checked;
-
-        if (stype) {
-          formData.append("suggest-type", "Yes");
-        } else {
-          formData.append("suggest-type", "No");
-        }
-        if (stext) {
-          formData.append("suggestion", "Yes");
-        } else {
-          formData.append("suggestion", "No");
-        }
 
         fetch(scriptURL, { method: "POST", body: formData })
           .then((response) => {
