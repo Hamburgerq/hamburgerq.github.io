@@ -84,23 +84,20 @@ Maybe custom shifting value will be a feature in the future.
   </body>
     <script src="../../js/mobile-nav.js"></script>
     <script src="../../js/multi-lang.js"></script>
-    <script>
-      const scriptURL =                       
-      "https://script.google.com/macros/s/AKfycbx5mEwsiYjYoOYhVsHgUE9pVx59fB-Hq-BKGsVtd_cNHnHQkjV7QC9oTQPAEGI2PwGMxA/exec";
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbx5mEwsiYjYoOYhVsHgUE9pVx59fB-Hq-BKGsVtd_cNHnHQkjV7QC9oTQPAEGI2PwGMxA/exec"; // Your script URL
+  const form = document.forms["submit-google-sheet"];
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    var formData = new FormData(form);
 
-      const form = document.forms["submit-google-sheet"];
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        var formData = new FormData(form);
-
-        fetch(scriptURL, { method: "POST", body: formData, redirect: "follow", headers: {
-        "Content-Type": "text/plain;charset=utf-8",},})
-          .then((response) => {
-            swal("Done", "Submitted Successfully.", "success");
-          })
-          .catch((error) => {
-            swal("Error", "Something went wrong. please try again!", "error");
-          });
+    fetch(scriptURL, { method: "POST", body: formData, redirect: "follow" }) // REMOVED THE HEADERS OBJECT
+      .then((response) => {
+        swal("Done", "Submitted Successfully.", "success");
+      })
+      .catch((error) => {
+        swal("Error", "Something went wrong. please try again!", "error");
       });
-    </script>
+  });
+</script>
 </html>
