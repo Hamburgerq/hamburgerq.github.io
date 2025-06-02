@@ -14,7 +14,6 @@
     <link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/language/en/faq.html"  />
     <link rel="alternate" hreflang="zh" href="https://hamburgerq.github.io/language/tc/faq.html"  />
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
   </head>
   <body>
     <div class="mobile-menu-btn">
@@ -64,7 +63,7 @@
 Maybe custom shifting value will be a feature in the future.
         </p>
       </div>
-      <form method="post" action="https://script.google.com/macros/s/AKfycbx5mEwsiYjYoOYhVsHgUE9pVx59fB-Hq-BKGsVtd_cNHnHQkjV7QC9oTQPAEGI2PwGMxA/exec" id="submit-google-sheet">
+      <form method="post" action="" name="submit-google-sheet">
         <div>
           <label for="suggest-type">Suggestion type:</label>
           <select name="suggest-type" id="suggest-type">
@@ -84,5 +83,20 @@ Maybe custom shifting value will be a feature in the future.
   </body>
     <script src="../../js/mobile-nav.js"></script>
     <script src="../../js/multi-lang.js"></script>
+    <script>
+        const scriptURL = 'Your Google App Script URL'
+
+        const form = document.forms['submit-google-sheet']
+
+        form.addEventListener('submit', e => {
+  
+        e.preventDefault()
+  
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thank you! Form is submitted" ))
+        .then(() => { window.location.reload(); })
+        catch(error => .error('Error!', error.message))
+})
+    </script>
 
 </html>
