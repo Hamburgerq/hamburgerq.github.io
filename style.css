@@ -394,6 +394,10 @@ form textarea {
   font-size: 24px;
 }
 
+/* Advertise */
+#container-e8e2e5141a6f61b47a71c4697c12627b{
+  color: white;
+}
 @media only screen and (max-width:1024px) {
   .grid > div { 
     padding: 10px; /* Keep your existing padding */
@@ -552,5 +556,8 @@ form textarea {
 
   #previous-version-h1 {
     /*scroll-margin-top: 0;*/
+  }
+  #container-e8e2e5141a6f61b47a71c4697c12627b{
+    display: none;
   }
 }
