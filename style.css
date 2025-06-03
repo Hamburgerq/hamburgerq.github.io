@@ -56,6 +56,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 100px 0 0 0;
+  align-items: center;
 }
 
 html, body {
@@ -398,6 +399,8 @@ form textarea {
 #container-e8e2e5141a6f61b47a71c4697c12627b{
   color: white;
 }
+
+
 @media only screen and (max-width:1024px) {
   .grid > div { 
     padding: 10px; /* Keep your existing padding */
