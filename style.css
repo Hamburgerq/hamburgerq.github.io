@@ -188,18 +188,25 @@ ul li:hover>ul {
 
 
 h1 {
-  font-size: 40px;
-  margin: 20px 0;
-}
-
-h2 {
+  /*font-size: 40px;
+  margin: 20px 0;*/
   font-size: 36px;
   line-height: 46px;
 }
-h3 {
+
+h2 {
+  /*font-size: 36px;
+  line-height: 46px;*/
   font-size: 28px;
   line-height: 46px;
   margin: 30px 0 10px 0;
+}
+h3 {
+  /*font-size: 28px;
+  line-height: 46px;
+  margin: 30px 0 10px 0;*/
+  font-size: 20px;
+
 }
 
 #previous-version-h1 {
