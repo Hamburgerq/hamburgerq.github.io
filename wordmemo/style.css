@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+      :root {
+        --primary-bg-color: #f3f4f6; /* background: white */
+        --primary-text-color: #18181b; /* text: black*/
+        --secondary-text-color: #ffffff; /* light text: white */
+        --primary-border-color: #3730a380; /* border: light purple*/
+        --theme-btn-color: #3730a3; /* button: dark purple*/
+        --theme-btn-hcolor: #c026d3; /* button hover: light violet*/
+        --theme-droplist-bg-color: #3730a3; /* border: light purple*/
+        --practice-bg-color: #d9fffd; /* practice area background: light blue*/
+        --correct-text-color: #00731f;
+        --incorrect-text-color: #ff0703;
+      }
+
+      .dark {
+        --primary-bg-color: #18181b; /* dark background: black */
+        --primary-text-color: #ffffff; /* light text: white*/
+        --secondary-text-color: #18181b; /* dark text: black */
+        --primary-border-color: #c7d2fe80; /* border: light purple*/
+        --theme-btn-color: #c7d2fe; /* button: purple*/
+        --theme-btn-hcolor: #f47dfa; /* button hover: dark violet*/
+        --theme-droplist-bg-color: #c7d2fe; /* border: black*/
+        --practice-bg-color: #383838; /* practice area background: dark gray*/
+        --correct-text-color: #00e362;
+        --incorrect-text-color: #fca7a7;
+      }
+
+      html {
+        color: var(--primary-text-color);
+        background-color: var(--primary-bg-color);
+      }
+      select {
+        color: var(--primary-text-color);
+        background-color: var(--primary-bg-color);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+        background-color: var(--primary-bg-color);
+      }
+      .theme-btn {
+        color: var(--secondary-text-color);
+        background-color: var(--theme-btn-color);
+      }
+      .theme-btn:hover {
+        color: var(--secondary-text-color);
+        background-color: var(--theme-btn-hcolor);
+      }
+      .theme-link {
+        color: var(--primary-text-color);
+      }
+      .theme-link:hover {
+        color: var(--theme-btn-hcolor);
+      }
+      .main-panel {
+        border-color: var(--primary-border-color);
+      }
+      .theme-droplist{
+        color: var(--primary-text-color);
+        background-color: var(--primary-bg-color);
+        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      }
+      .theme-droplist:hover {
+        color: var(--secondary-text-color);
+        background-color: var(--theme-droplist-bg-color);
+      }
+      .pronun-btn {
+        border-color: var(--primary-text-color);
+        color: var(--primary-text-color);
+      }
+      .pronun-btn:hover {
+        border-color: var(--theme-droplist-bg-color);
+        color: var(--secondary-text-color);
+        background-color: var(--theme-droplist-bg-color);
+      }
+      .correct-color {
+        color: var(--correct-text-color);
+      }
+      .incorrect-color {
+        color: var(--incorrect-text-color);
+      }
+      #practice-section {
+        background-color: var(--practice-bg-color);
+      }
+      #question-count{
+        color: var(--theme-btn-color);
+      }
+      #word-display {
+        color: var(--primary-text-color);
+      }
+      /* Button behavior */
+      #hamburger-button {
+          visibility: hidden;
+        }
+      /* Styles for the loading screen */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999; /* Ensure it's on top of everything */
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      /* Styles for the loader spinner */
+      .loader {
+        width: 40px;
+        aspect-ratio: 1;
+        color: #691af0;
+        position: relative;
+        background:
+          conic-gradient(from 134deg at top   ,currentColor 92deg,#0000 0) top,
+          conic-gradient(from -46deg at bottom,currentColor 92deg,#0000 0) bottom;
+        background-size: 100% 50%;
+        background-repeat: no-repeat;
+      }
+      .loader:before {
+        content:'';
+        position: absolute;
+        inset: 0;
+        --g:currentColor 14.5px,#0000 0 calc(100% - 14.5px),currentColor 0;
+        background:
+          linear-gradient( 45deg,var(--g)),
+          linear-gradient(-45deg,var(--g));
+        animation: l7 1.5s infinite cubic-bezier(0.3,1,0,1);
+      }
+      @keyframes l7 {
+        33%  {inset:-10px;transform: rotate(0deg)}
+        66%  {inset:-10px;transform: rotate(90deg)}
+        100% {inset:0    ;transform: rotate(90deg)}
+      }
+
+      /* Initially hide the main content */
+      #main-content {
+        display: none;
+      }
+      /* -------------------------- */
+      /* This class will be added to the collapsible content to animate its height */
+      .collapsible-content.collapsed {
+        max-height: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      .break-all {
+        word-break: break-all;
+      }
+      /* Style for selected table cells */
+      .selected {
+        background-color: #bfdbfe; /* Light blue background for selected cells */
+        outline: 2px solid #3b82f6; /* Blue outline */
+      }
+      /* New rule: Apply a custom outline when a content editable cell is focused */
+      td[contenteditable="true"]:focus {
+        outline: 4px solid #3b82f6;
+        outline-offset: -4px; /* Pulls the outline in to not affect layout */
+      }
+      /* Modal overlay styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        /* Removed align-items: center; to position from top */
+        justify-content: center;
+        z-index: 1000;
+        overflow-y: auto; /* Allow scrolling if content is too tall */
+      }
+      .modal-content {
+        background-color: var(--primary-bg-color);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+        max-height: 90vh; /* Limit height to prevent overflow */
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px; /* Add margin from the top */
+        margin-bottom: 50px; /* Add margin at the bottom for scrolling */
+      }
+      .close-button {
+        cursor: pointer;
+        font-size: 2rem;
+        line-height: 1;
+        transition: color 0.2s;
+      }
+      .close-button:hover {
+        color: #e53e3e;
+      }
+      /* Ensure table rows maintain a consistent height */
+      #editableTable tbody tr {
+        height: 2rem; /* Fixed height for table rows */
+      }
+      #editableTable td {
+        vertical-align: top; /* Align content to the top within the cell */
+      }
+      /* Styles for the export dropdown */
+      .export-dropdown {
+        position: absolute;
+        border-radius: 0.375rem; /* rounded-md */
+        border-color: var(--primary-border-color);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+        z-index: 10;
+        min-width: 120px;
+        top: 100%; /* Position below the button */
+        right: 0; /* Align to the right of the button */
+        margin-top: 0.5rem; /* mt-2 */
+        overflow: hidden; /* For rounded corners on children */
+      }
+      .export-dropdown button {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 1rem; /* py-2 px-4 */
+        text-align: left;
+        font-size: 0.875rem; /* text-sm */
+      }
+
+      /*Checkbox styling*/
+      .toggle-switch-checkbox {
+        display: none;
+      }
+
+      .toggle-switch-label { /*Style of slider track*/
+        display: block;
+        width: 48px;
+        height: 26px;
+        background-color: #ccc;
+        border-radius: 34px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.4s;
+      }
+
+      .toggle-switch-label::before {/*Circle on top of slider track*/
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 18px;
+        height: 18px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.4s;
+      }
+
+      .toggle-switch-checkbox:checked + .toggle-switch-label {
+        background-color: #2196F3;
+      }
+
+      .toggle-switch-checkbox:checked + .toggle-switch-label::before {
+        transform: translateX(20px);
+      }
+      /* Help collapse in setting popup*/
+      .help-collapse-content{
+        max-height: 2000px;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in;
+      }
+      .help-collapse-content.collapsed{
+        max-height: 0;
+      }
+
+      /*Ripple*/
+      .ripple {
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+        transform: scale(0);
+        background: var(--primary-text-color);
+        border-radius: 50%;
+        position: fixed;
+        z-index: 999;
+      }
+      /*Animate Function*/
+      .animate {
+        animation: ripple-mo 0.7s cubic-bezier(0, 0, 0.2, 1);
+      }
+      @keyframes ripple-mo {
+        0% {
+          transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(10);
+          opacity: 0;
+        }
+      }
+      @media only screen and (max-width: 784px) {
+        #hamburger-button {
+          visibility: visible;
+        }
+      }

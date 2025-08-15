@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" id="whole-page" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Practice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body class="p-4 initial-loading">
+    <div id="loading-screen" class="flex flex-col gap-6">
+      <div class="loader"></div>
+      <p class="text-2xl">Loading...</p>
+    </div>
+
+    <div id="main-content">
+      <!-- Language Selectors Container -->
+      <button id="hamburger-button" width=40px height=40px class="fixed top-3 right-3 group p-2 hover:text-fuchsia-700 transition-all duration-300 z-20" title="Settings">
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10"><path fill="currentColor" d="M1.125 2.25a.375.375 0 0 0 0 .75h9a.375.375 0 0 0 0-.75zM.75 5.625a.375.375 0 0 1 .375-.375h9a.375.375 0 0 1 0 .75h-9a.375.375 0 0 1-.375-.375m0 3a.375.375 0 0 1 .375-.375h9a.375.375 0 0 1 0 .75h-9a.375.375 0 0 1-.375-.375" fill="#000"/></svg>
+      </button>
+      <div id='menu-collapse-area' class='flex flex-col collapsible-content max-h-96 overflow-hidden transition-all duration-500 ease-in-out'>
+        <div class="mb-2 w-full z-10 flex flex-row justify-end space-y-2">
+          <div class="z-10 flex flex-col space-y-2">
+            <!-- UI Language Selector Dropdown -->
+            <div class="flex flex-row items-center space-x-2 justify-end">
+              <label for="ui-language-selector" id="ui-label">UI language</label>
+              <select id="ui-language-selector" class="border py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-fuchsia-700">
+                <option value="en">English</option>
+                <option value="zh">繁體中文</option>
+              </select>
+            </div>
+            <!-- Pronunciation Language Selector Dropdown -->
+            <div class="flex flex-row items-center space-x-2 justify-end">
+              <label for="pronunciation-language-selector" id="pronunciation-label">Pronunciation</label>
+              <select id="pronunciation-language-selector" class="border py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-fuchsia-700">
+                <!-- Options for common languages will be hardcoded -->
+                <option value="en-US">English</option>
+                <option value="zh-TW">繁體中文</option>
+                <option value="ja-JP">日本語</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="z-10 flex flex-row justify-center gap-2 space-y-2">
+          <button id="setting-button" width=40px height=40px class="group p-2 hover:text-fuchsia-700 transition-all duration-300 z-20" title="Settings">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+              <path d="M9.7162 2.7562C9.8288 2.2012 10.32 1.8 10.89 1.8L13.1325 1.8C13.7025 1.8 14.1938 2.2012 14.3062 2.7562L14.85 5.3812C15.3788 5.6062 15.8749 5.9032 16.3249 6.2362L18.8662 5.3925C19.4062 5.2125 20.0000 5.4375 20.2988 5.9325L21.405 7.875C21.7038 8.3699 21.5906 9.0000 21.1612 9.3712L19.1625 11.1488C19.1962 11.4262 19.2112 11.7112 19.2112 12.0C19.2112 12.2888 19.1925 12.5738 19.1625 12.8512L21.1662 14.6325C21.5950 15.0038 21.7200 15.6375 21.4125 16.1325L20.2988 18.0712C20.0000 18.5625 19.4062 18.7875 18.8662 18.6075L16.3288 17.7675C15.8749 18.1084 15.3788 18.4069 14.8538 18.6412L14.3138 21.2438C14.1975 21.8025 13.7062 22.2 13.1362 22.2L10.8975 22.2C10.3275 22.2 9.8362 21.8025 9.7199 21.2438L9.1838 18.6412C8.6550 18.4069 8.1600 18.1084 7.7100 17.7675L5.1562 18.6075C4.6162 18.7875 4.0200 18.5625 3.7225 18.0712L2.6175 16.1325C2.3199 15.6375 2.4338 15.0038 2.8612 14.6325L4.8638 12.8512C4.8975 12.5738 4.9125 12.2888 4.9125 12.0C4.9125 11.7112 4.8938 11.4262 4.8638 11.1488L2.8612 9.3712C2.4338 9.0000 2.3199 8.3699 2.6175 7.875L3.7225 5.9325C4.0200 5.4375 4.6162 5.2125 5.1562 5.3925L7.6988 6.2362C8.1488 5.9032 8.6438 5.6062 9.1725 5.3812L9.7162 2.7562zM12.0112 15.0C13.6688 14.9925 15.0075 13.6462 15.0 11.9925C14.9925 10.3350 13.6462 8.9962 11.9925 9.0C10.3350 9.0075 8.9962 10.3538 9.0 12.0075C9.0075 13.6650 10.3538 15.0038 12.0112 15.0z"/>
+            </svg>
+          </button>
+
+          <!-- Button to open the modal (simulating your setting-button) -->
+          <!-- This button is kept as a reference from the original code, but the setting-button now also opens the modal -->
+          <button id="openModalBtn" width=40px height=40px class="group hover:text-fuchsia-700 transition duration-300 z-20" title="Edit table">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+              <path d="m21.54199,5.35496a1,1 0 0 0 -0.29,-0.71l-4.24,-4.24a1,1 0 0 0 -0.71,-0.29a1,1 0 0 0 -0.71,0.29l-2.83,2.83l0,0l-10.93,10.93a1,1 0 0 0 -0.29,0.71l0,4.24a1,1 0 0 0 1,1l4.24,0a1,1 0 0 0 0.76,-0.29l10.87,-10.93l0,0l2.84,-2.78a1.19,1.19 0 0 0 0.22,-0.33a1,1 0 0 0 0,-0.24a0.7,0.7 0 0 0 0,-0.14l0.07,-0.05zm-15.17,12.76l-2.83,0l0,-2.83l9.93,-9.93l2.83,2.83l-9.93,9.93zm11.34,-11.34l-2.83,-2.83l1.42,-1.41l2.82,2.82l-1.41,1.42z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Main Content Container with a fixed top margin -->
+      <div class="main-panel rounded-xl shadow-2xl p-4 max-w-lg w-full mx-auto mt-[4px] border-4 ">
+        <h1 id="main-title" class="text-4xl font-bold text-center mb-6">Vocabulary Practice</h1>
+
+        <div id="file-upload-section" class="text-center flex flex-col gap-4">
+          <!-- Custom file upload button and file name display -->
+          <label for="excel-file" id="custom-upload-button" class="theme-btn cursor-pointer inline-flex items-center justify-center px-4 py-3 border border-transparent text-base font-semibold rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-700 transition duration-300">
+            Upload vocabulary file (.xlsx .csv .json)
+          </label>
+          <span id="file-name" class="ml-4 text-base">No file selected</span>
+          <!-- Hidden native file input -->
+          <input type="file" id="excel-file" accept="*/*" class="hidden">
+        </div>
+
+        <!-- Filter Section Container -->
+        <div id="filter-section-container" class="hidden mt-6 rounded-xl shadow-inner border border-gray-400">
+
+          <!-- Filter Header with label and toggle button -->
+          <div id="filter-header" class="flex items-center justify-between p-4">
+            <label id="wordclass-label" class="text-xl font-semibold">Word Class:</label>
+            <!-- This is the button to toggle the content -->
+            <button id="toggle-filter-button" class="theme-btn group p-2 rounded-full shadow-lg transition-all duration-300 z-20">
+              <!-- Up Arrow Icon (Initially pointing up, indicating the content is visible) -->
+              <svg id="toggle-icon-up" class="w-6 h-6 transition-transform duration-300 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+              </svg>
+              <!-- Down Arrow Icon (Initially hidden) -->
+              <svg id="toggle-icon-down" class="hidden w-6 h-6 transition-transform duration-300 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- This is the content that will be toggled, now with max-h and overflow for animation -->
+          <!-- The p-4 class will be added/removed dynamically with JS -->
+          <div id="collapsible-filter-content" class="collapsible-content max-h-96 text-center transition-all duration-500 ease-in-out">
+            <div class="flex items-center justify-between mb-2">
+              <div class="relative w-full">
+                <button id="word-class-toggle-button" class="theme-btn w-full border py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-fuchsia-700 text-left flex items-center justify-between">
+                  <span id="selected-word-classes">All Word Classes</span>
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+
+                <div id="word-class-panel" class="absolute w-full mt-2 border rounded-lg shadow-lg z-20 max-h-48 overflow-y-auto hidden">
+                  <!-- Checkboxes will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <button id="apply-filter-button" class="theme-btn mt-4 font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">
+              Start Practice
+            </button>
+          </div>
+        </div>   	
+
+        <!----- Practice area ----->
+        <div id="practice-section" class="hidden text-center rounded-xl p-4">
+          <div class="flex flex-row justify-end items-center">
+            <button id="fav-btn" class="text-gray-400 bg-transparent text-4xl font-bold rounded-full p-2" onclick="addFav()">
+              &#x2764;
+            </button>
+          </div>
+          <p class="text-sm mb-4">
+            <span id="question-count" class="font-semibold text-xl"></span>
+          </p>
+          <h2 id="word-display" class="text-3xl font-extrabold mb-6 min-h-[4rem] flex items-center justify-center"></h2>
+
+          <input type="text" id="answer-input" class="text-black w-full p-3 rounded-lg border-2 border-gray-400 focus:border-indigo-800 focus:ring-2 focus:ring-fuchsia-700 outline-none transition duration-200 text-center text-lg" placeholder="Type your answer here">
+
+          <p id="feedback-message" class="mt-4 text-2xl font-medium min-h-[2rem] flex items-center justify-center"></p>
+
+          <div class="flex justify-center space-x-4 mt-6">
+            <button id="check-button" class="theme-btn font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed">
+              Check Answer
+            </button>
+            <button id="next-button" class="theme-btn font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed">
+              Next Question
+            </button>
+          </div>
+
+          <div class="flex justify-end items-center mt-6">
+            <button id="back-to-upload-button" class="theme-link text-xl pt-2 hover:underline font-semibold transition duration-300">
+              Upload a New File
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Edit table Modal Structure -->
+      <div id="editableTableModal" class="flex items-start justify-center w-full modal-overlay hidden z-40">
+        <div class="modal-content relative w-full max-w-4xl">
+          <button class="close-button absolute top-4 right-4 text-3xl" id="closeModalBtn">&times;</button>
+          <div>
+            <div class="p-2 border-b">
+              <h1 id="data-table" class="text-2xl font-semibold mb-2">Vocabulary Table</h1>
+            </div>
+
+            <div class="p-2 gap-2 flex flex-wrap justify-start relative"> <!-- Added relative for dropdown positioning -->
+              <button id="load-fav-btn" class="text-gray-400 bg-transparent text-4xl font-bold rounded-full px-2 h-10" onclick="loadFav()">
+                &#x2764;
+              </button>
+              <button id="importExcelBtn" class="bg-green-600 hover:bg-green-800 text-white font-bold px-2 rounded-md shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 h-10">
+                Import
+              </button>
+              <input type="file" id="importExcelInput" accept="*/*" class="hidden">
+
+              <!-- Export Button and Dropdown -->
+              <div class="relative">
+                <button id="exportBtn" class="h-full bg-purple-500 hover:bg-purple-700 text-white font-bold px-2 rounded-md shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 h-10">
+                  Export
+                </button>
+                <div id="exportDropdown" class="export-dropdown hidden">
+                  <button id="exportXLSXBtn" class="theme-droplist">Export as XLSX</button>
+                  <button id="exportCSVBtn" class="theme-droplist">Export as CSV</button>
+                  <button id="exportJSONBtn" class="theme-droplist">Export as JSON</button>
+                </div>
+              </div>
+
+              <button id="addRowBtn" class="bg-green-600 hover:bg-green-800 text-white font-bold px-2 rounded-md shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 h-10">
+                Add Row
+              </button>
+              <button id="deleteRowBtn" class="bg-red-500 hover:bg-red-700 text-white font-bold px-2 rounded-md shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 h-10">
+                Delete Row
+              </button>
+              <button id="cloneRowBtn" class="bg-green-600 hover:bg-green-800 text-white font-bold px-2 rounded-md shadow-sm transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 h-10">
+                Clone Row
+              </button>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table id="editableTable" class="min-w-full divide-y divide-gray-600 table-fixed">
+                <thead class="bg-black-100">
+                  <tr class = "bg-indigo-100 text-center">
+                    <th id="col-title1" scope="col" class="px-2 py-1 text-xl font-xl text-gray-800 tracking-wider border border-black w-1/4">Word</th>
+                    <th id="col-title2" scope="col" class="px-2 py-1 text-xl font-xl text-gray-800 tracking-wider border border-black w-1/4">Pronunciation</th>
+                    <th id="col-title3" scope="col" class="px-2 py-1 text-xl font-xl text-gray-800 tracking-wider border border-black w-1/4">English</th>
+                    <th id="col-title4" scope="col" class="px-2 py-1 text-xl font-xl text-gray-800 tracking-wider border border-black w-1/4">Word class</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-600">
+                  <!-- Default rows -->
+                  <tr>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                  </tr>
+                  <tr>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                  </tr>
+                  <tr>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                    <td contenteditable="false" class="px-2 py-1 break-all text-base text-gray-900 border border-black focus:bg-orange-100"></td>
+                  </tr>
+                  <!-- Add more rows as needed -->
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- New Settings Modal Structure -->
+      <div id="settingsModal" class="flex items-start justify-center w-full modal-overlay hidden">
+        <div class="modal-content relative w-full max-w-md">
+          <button class="close-button absolute top-4 right-4 text-3xl" id="closeSettingsModalBtn">&times;</button>
+          <div class="overflow-hidden">
+            <div class="p-2 border-b border-gray-600">
+              <h1 class="text-2xl font-semibold mb-2" id="settings-label">Settings</h1>
+            </div>
+            <div class="flex flex-col gap-4 p-6 border-t border-gray-600">
+              <!-- Content for settings will go here -->
+              <div class="flex gap-2">
+                <span class="text-base" id="dark-mode-label">Dark mode:</span><input type="checkbox" id="dark-mode-checkbox" class = "toggle-switch-checkbox text-3xl" onclick="darkModeChecker()">
+                <label for="dark-mode-checkbox" class="toggle-switch-label"></label>
+              </div>
+
+              <!-- Help collapsed area -->
+              <div class = "flex flex-row gap-2 items-center">
+                <span id="help-label" class="text-base">Help</span>
+                <button id="help-arrow-up" class="text-left">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="w-6 h-6">
+                    <path d="M502.689,324.653L269.957,150.109c-8.276-6.206-19.653-6.206-27.927,0L9.311,324.653
+                             c-10.282,7.713-12.367,22.3-4.655,32.582c4.572,6.097,11.56,9.311,18.637,9.311c4.858,0,9.759-1.517,13.945-4.656l218.758-164.072
+                             l218.767,164.072c10.285,7.714,24.871,5.627,32.582-4.655C515.056,346.953,512.971,332.365,502.689,324.653z"/>
+                  </svg>
+                </button>
+                <button id="help-arrow-down" class="text-left hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="w-6 h-6">
+                    <path d="M505.183,123.179c-9.087-9.087-23.824-9.089-32.912,0.002l-216.266,216.27L39.729,123.179
+                             c-9.087-9.087-23.824-9.089-32.912,0.002c-9.089,9.089-9.089,23.824,0,32.912L239.55,388.82c4.364,4.364,10.283,6.816,16.455,6.816
+                             c6.172,0,12.092-2.453,16.455-6.817l232.721-232.727C514.272,147.004,514.272,132.268,505.183,123.179z"/>
+                  </svg>
+                </button>
+              </div>
+
+              <div id="help-collapse-content1" class="help-collapse-content flex flex-col gap-2 collapsed">
+                <ol id="help-list" class="text-base p-2 pl-4 -indent-4">
+                  <li>1.Support input and output file format: .xlsx, .csv, .json.<br></li>
+                  <li>2.Input file should have 4 columns in a certain sequence: Word, Pronunciation, Your native language, Word class.<br></li>
+                  <li>3.Phone should install text to voice package of prefer language in order to select as pronunciation language.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ripple z-999"></div>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+  <script src="script.js"></script>
+  </body>
+</html>
