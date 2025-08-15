@@ -32,6 +32,7 @@
                 // and replaces it with a single slash, ensuring we get "/about" or "/" for homepage
 
                 // Construct the new URL
+                    console.log(pathSegments.length);
                 if (pathSegments.length > 3) {
                   newUrl = 	`../`+ `${selectedLang}` + `/` + `${pagePathWithoutLang}`;
                   //console.log(newUrl);
@@ -46,4 +47,5 @@
                 window.location.href = newUrl;
             });
         });
+
 
