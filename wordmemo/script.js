@@ -750,6 +750,7 @@
         }
 		// 0 < currentQuestionIndex < shuffledVocabularyList.length
 		do {
+			console.log(shuffledVocabularyList[currentQuestionIndex].correct);
 			if (!shuffledVocabularyList[currentQuestionIndex].correct) {
         		const currentItem = shuffledVocabularyList[currentQuestionIndex];
 				break;
@@ -1442,5 +1443,6 @@ OK
         }
 
       };
+
 
 
