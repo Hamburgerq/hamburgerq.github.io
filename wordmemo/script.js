@@ -740,7 +740,6 @@
          * Displays the current vocabulary question on the screen.
          */
       function displayQuestion() {
-		  console.log(shuffledVocabularyList);
         if (shuffledVocabularyList.length === 0) {
           showAlert('No questions available for this filter. Please try a different filter or file.');
           return;
@@ -1373,6 +1372,9 @@ OK
         // Open the vocabulary table modal when the openModalBtn (pencil icon) is clicked
         openModalBtn.addEventListener('click', () => {
           editableTableModal.classList.remove('hidden');
+		  if (loadFavBtn.classList.contains('text-red-600')){
+			loadFav();
+		  }
           clearSelection(); // Clear selection when modal opens
         });
 
@@ -1450,6 +1452,7 @@ OK
         }
 
       };
+
 
 
 
