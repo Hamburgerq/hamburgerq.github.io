@@ -776,6 +776,7 @@
 		          favBtn.classList.remove("incorrect-color");
 		          favBtn.classList.add("correct-color");
 		        }
+				break;
 			} else {
 			currentQuestionIndex++;
 			}
@@ -1445,6 +1446,7 @@ OK
         }
 
       };
+
 
 
 
