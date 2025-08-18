@@ -773,6 +773,8 @@
 		        answerInput.focus();
 		
 		        updateQuestionCountDisplay();
+				console.log(currentItem);
+				console.log(currentQuestionIndex);
 		        if (currentItem.fav === 0 && favBtn.classList.contains('correct-color')) {
 		          favBtn.classList.add("incorrect-color");
 		          favBtn.classList.remove("correct-color");
@@ -1450,6 +1452,7 @@ OK
         }
 
       };
+
 
 
 
