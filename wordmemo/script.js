@@ -886,6 +886,7 @@
          */
       function nextQuestion() {
 		const currentItem = shuffledVocabularyList[currentQuestionIndex];
+		  console.log(currentItem);
         //if (lastAnswerCorrect) {
 		if (currentItem.correct) {
           currentQuestionIndex++;
@@ -1446,6 +1447,7 @@ OK
         }
 
       };
+
 
 
 
