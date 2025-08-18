@@ -752,8 +752,8 @@
           currentQuestionIndex = 0;
         }
 		// 0 < currentQuestionIndex < shuffledVocabularyList.length
+		let correctNum = 0;
 		do {
-			let correctNum = 0
 			if (!shuffledVocabularyList[currentQuestionIndex].correct) {
         		const currentItem = shuffledVocabularyList[currentQuestionIndex];
 		        // Create a wrapper for the word and the new pronunciation button
@@ -782,6 +782,7 @@
 				break;
 			} else if (currentQuestionIndex === shuffledVocabularyList.length-1) {
 				currentQuestionIndex = 0;
+				correctNum = 0;
 			} else {
 				currentQuestionIndex++;
 				correctNum++;
@@ -1453,6 +1454,7 @@ OK
         }
 
       };
+
 
 
 
