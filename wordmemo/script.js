@@ -776,14 +776,14 @@
 				console.log(currentItem);
 				console.log(currentQuestionIndex);
 				console.log(currentItem.fav, favBtn.classList.contains('correct-color'));
-		        if (currentItem.fav === 0 && favBtn.classList.contains('correct-color')) {
+		        if (currentItem.fav === 0 && favBtn.classList.contains('text-red-600')) {
 					console.log("Gray out");
-		          favBtn.classList.add("incorrect-color");
-		          favBtn.classList.remove("correct-color");
-		        } else if (currentItem.fav === 1 && favBtn.classList.contains('incorrect-color')){
+		          favBtn.classList.add("text-gray-400");
+		          favBtn.classList.remove("text-red-600");
+		        } else if (currentItem.fav === 1 && !favBtn.classList.contains('text-red-600')){
 					console.log("Red");
-		          favBtn.classList.remove("incorrect-color");
-		          favBtn.classList.add("correct-color");
+		          favBtn.classList.remove("text-gray-400");
+		          favBtn.classList.add("text-red-600");
 		        }
 				break;
 			} else if (currentQuestionIndex === shuffledVocabularyList.length-1) {
@@ -1455,6 +1455,7 @@ OK
         }
 
       };
+
 
 
 
