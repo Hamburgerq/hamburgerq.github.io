@@ -753,7 +753,7 @@
 		let correctNum = 0;
 		do {
 			if (!shuffledVocabularyList[currentQuestionIndex].correct || correctNum === shuffledVocabularyList.length-1) {
-				if (correctNum === shuffledVocabularyList.length-1){
+				if (shuffledVocabularyList[currentQuestionIndex].correct && correctNum === shuffledVocabularyList.length-1){
 					shuffledVocabularyList.forEach(initializeWord);
 					currentQuestionIndex = 0;
 				}
@@ -1449,6 +1449,7 @@ OK
         }
 
       };
+
 
 
 
