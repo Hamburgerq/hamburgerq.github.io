@@ -774,6 +774,7 @@
 		
 		        updateQuestionCountDisplay();
 				console.log(currentItem);
+				console.log(currentItem.fav);
 				console.log(currentQuestionIndex);
 		        if (currentItem.fav === 0 && favBtn.classList.contains('correct-color')) {
 		          favBtn.classList.add("incorrect-color");
@@ -1452,6 +1453,7 @@ OK
         }
 
       };
+
 
 
 
