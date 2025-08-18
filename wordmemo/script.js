@@ -740,6 +740,7 @@
          * Displays the current vocabulary question on the screen.
          */
       function displayQuestion() {
+		  console.log(shuffledVocabularyList);
         if (shuffledVocabularyList.length === 0) {
           showAlert('No questions available for this filter. Please try a different filter or file.');
           return;
@@ -1449,6 +1450,7 @@ OK
         }
 
       };
+
 
 
 
