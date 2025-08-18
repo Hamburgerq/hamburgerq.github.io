@@ -750,9 +750,11 @@
         }
 		// 0 < currentQuestionIndex < shuffledVocabularyList.length
 		do {
-			if (shuffledVocabularyList[currentQuestionIndex].correct === false) {
+			if (!shuffledVocabularyList[currentQuestionIndex].correct) {
         		const currentItem = shuffledVocabularyList[currentQuestionIndex];
 				break;
+			} else {
+			currentQuestionIndex++;
 			}
 		}
 		while (currentQuestionIndex < shuffledVocabularyList.length);
@@ -1440,4 +1442,5 @@ OK
         }
 
       };
+
 
