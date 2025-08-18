@@ -811,7 +811,7 @@
           feedbackMessage.className = 'mt-4 text-2xl font-semibold incorrect-color flex items-center justify-center';
           feedbackTextSpan.innerHTML = `${translations[currentLang]['incorrect_message']}<br>${currentItem.answer} (${currentItem.pronunciation})`;
           //lastAnswerCorrect = false;
-		  currentItem.correct = true
+		  currentItem.correct = false
         }
 
         feedbackMessage.appendChild(feedbackTextSpan);
@@ -1447,6 +1447,7 @@ OK
         }
 
       };
+
 
 
 
