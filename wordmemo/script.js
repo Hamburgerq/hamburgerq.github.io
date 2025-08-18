@@ -754,7 +754,11 @@
 		// 0 < currentQuestionIndex < shuffledVocabularyList.length
 		let correctNum = 0;
 		do {
-			if (!shuffledVocabularyList[currentQuestionIndex].correct) {
+			if (!shuffledVocabularyList[currentQuestionIndex].correct || correctNum === shuffledVocabularyList.length-1) {
+				if (correctNum === shuffledVocabularyList.length-1){
+					shuffledVocabularyList.forEach(initializeWord);
+					currentQuestionIndex = 0;
+				}
         		const currentItem = shuffledVocabularyList[currentQuestionIndex];
 		        // Create a wrapper for the word and the new pronunciation button
 		        wordDisplay.innerHTML = '';
@@ -789,11 +793,10 @@
 			}
 		}
 		while (currentQuestionIndex < shuffledVocabularyList.length);
-
-
-
       }
-
+	function initializeWord(item, index, arr) {
+	  item.correct = false;
+	}
       /**
          * Checks the user's answer against the correct answer.
          */
@@ -1454,6 +1457,7 @@ OK
         }
 
       };
+
 
 
 
