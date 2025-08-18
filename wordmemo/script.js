@@ -774,8 +774,8 @@
 		
 		        updateQuestionCountDisplay();
 				console.log(currentItem);
-				console.log(currentItem.fav);
 				console.log(currentQuestionIndex);
+				console.log(currentItem.fav, favBtn.classList.contains('correct-color'));
 		        if (currentItem.fav === 0 && favBtn.classList.contains('correct-color')) {
 					console.log("Gray out");
 		          favBtn.classList.add("incorrect-color");
@@ -1455,6 +1455,7 @@ OK
         }
 
       };
+
 
 
 
