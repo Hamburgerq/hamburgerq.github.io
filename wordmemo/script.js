@@ -552,7 +552,7 @@
                   pronunciation: row[1],
                   question: row[2],
                   word_class: row[3],
-                  fav: 0
+                  fav: 0,
 				  correct: false
                 }));
 
@@ -571,7 +571,7 @@
                     pronunciation: cols[1] ? cols[1].trim().replace(/"/g,"") : '',
                     question: cols[2] ? cols[2].trim().replace(/"/g,"") : '',
                     word_class: cols[3] ? cols[3].trim().replace(/"/g,"") : '',
-                    fav: 0
+                    fav: 0,
 					correct: false
                   };
                 });
@@ -1446,6 +1446,7 @@ OK
         }
 
       };
+
 
 
 
