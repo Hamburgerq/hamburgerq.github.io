@@ -24,7 +24,6 @@
       let currentQuestionIndex = 0;
       let totalQuestionsAnswered = 0;
       let totalQuestions = 0;
-      let lastAnswerCorrect = false;
 
       const translations = {
         'en': {
@@ -261,7 +260,6 @@
         currentQuestionIndex = 0;
         totalQuestionsAnswered = 0;
         totalQuestions = 0;
-        lastAnswerCorrect = false;
       }
 
       /**
@@ -782,8 +780,6 @@
 		          favBtn.classList.add("correct-color");
 		        }
 				break;
-			} else if (correctNum === shuffledVocabularyList.length-1) {
-				break;
 			} else if (currentQuestionIndex === shuffledVocabularyList.length-1) {
 				currentQuestionIndex = 0;
 				correctNum = 0;
@@ -794,6 +790,7 @@
 		}
 		while (currentQuestionIndex < shuffledVocabularyList.length);
       }
+	// Initialize vocabulary array correct status while all words are correct
 	function initializeWord(item, index, arr) {
 	  item.correct = false;
 	}
@@ -815,12 +812,10 @@
           feedbackMessage.className = 'mt-4 text-2xl font-semibold correct-color flex items-center justify-center';
           feedbackTextSpan.innerHTML = `${translations[currentLang]['correct_prefix']}<br>${currentItem.answer} `;
           totalQuestionsAnswered++;
-          //lastAnswerCorrect = true;
 		  currentItem.correct = true
         } else {
           feedbackMessage.className = 'mt-4 text-2xl font-semibold incorrect-color flex items-center justify-center';
           feedbackTextSpan.innerHTML = `${translations[currentLang]['incorrect_message']}<br>${currentItem.answer} (${currentItem.pronunciation})`;
-          //lastAnswerCorrect = false;
 		  currentItem.correct = false
         }
 
@@ -896,13 +891,10 @@
          */
       function nextQuestion() {
 		const currentItem = shuffledVocabularyList[currentQuestionIndex];
-		  console.log(shuffledVocabularyList);
-        //if (lastAnswerCorrect) {
+		//console.log(shuffledVocabularyList);
 		if (currentItem.correct) {
           currentQuestionIndex++;
         } else {
-          //const incorrectItem = shuffledVocabularyList.splice(currentQuestionIndex, 1)[0];
-          //shuffledVocabularyList.push(incorrectItem);
 		  shuffledVocabularyList = shuffleArray(shuffledVocabularyList);
         }
         displayQuestion();
@@ -1457,6 +1449,7 @@ OK
         }
 
       };
+
 
 
 
