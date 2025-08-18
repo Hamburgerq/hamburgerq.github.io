@@ -777,9 +777,11 @@
 				console.log(currentItem.fav);
 				console.log(currentQuestionIndex);
 		        if (currentItem.fav === 0 && favBtn.classList.contains('correct-color')) {
+					console.log("Gray out");
 		          favBtn.classList.add("incorrect-color");
 		          favBtn.classList.remove("correct-color");
 		        } else if (currentItem.fav === 1 && favBtn.classList.contains('incorrect-color')){
+					console.log("Red");
 		          favBtn.classList.remove("incorrect-color");
 		          favBtn.classList.add("correct-color");
 		        }
@@ -1453,6 +1455,7 @@ OK
         }
 
       };
+
 
 
 
