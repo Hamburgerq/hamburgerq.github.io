@@ -777,7 +777,9 @@
 		          favBtn.classList.add("correct-color");
 		        }
 				break;
-			} else {
+			} else if (currentQuestionIndex === shuffledVocabularyList.length-1) {
+				currentQuestionIndex = 0;
+			} else
 			currentQuestionIndex++;
 			}
 		}
@@ -1447,6 +1449,7 @@ OK
         }
 
       };
+
 
 
 
