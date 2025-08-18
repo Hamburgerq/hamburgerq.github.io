@@ -553,6 +553,7 @@
                   question: row[2],
                   word_class: row[3],
                   fav: 0
+				  correct: false
                 }));
 
                 isValidFile = true;
@@ -571,6 +572,7 @@
                     question: cols[2] ? cols[2].trim().replace(/"/g,"") : '',
                     word_class: cols[3] ? cols[3].trim().replace(/"/g,"") : '',
                     fav: 0
+					correct: false
                   };
                 });
                 isValidFile = true;
@@ -591,7 +593,8 @@
                     pronunciation: rowValues[1] !== undefined ? String(rowValues[1]).trim() : '',
                     question: rowValues[2] !== undefined ? String(rowValues[2]).trim() : '',
                     word_class: rowValues[3] !== undefined ? String(rowValues[3]).trim() : '',
-                    fav: 0
+                    fav: 0,
+					correct: false
                   };
                 }).filter(item => item.word_class !== ''); // Filter out non four columns rows
                 // Check if any valid data was parsed after mapping and filtering
@@ -1443,6 +1446,7 @@ OK
         }
 
       };
+
 
 
 
