@@ -753,11 +753,29 @@
         }
 		// 0 < currentQuestionIndex < shuffledVocabularyList.length
 		do {
-			console.log(shuffledVocabularyList[currentQuestionIndex].correct);
 			if (!shuffledVocabularyList[currentQuestionIndex].correct) {
         		const currentItem = shuffledVocabularyList[currentQuestionIndex];
-				console.log(currentItem);
-				break;
+		        // Create a wrapper for the word and the new pronunciation button
+		        wordDisplay.innerHTML = '';
+		        const questionText = document.createElement('span');
+		        questionText.innerHTML = `${currentItem.question}&nbsp;&nbsp;&nbsp;&nbsp;(${currentItem.word_class})`;
+		        wordDisplay.appendChild(questionText);
+		
+		        answerInput.value = '';
+		        feedbackMessage.innerHTML = '';
+		
+		        checkButton.disabled = false;
+		        nextButton.disabled = true;
+		        answerInput.focus();
+		
+		        updateQuestionCountDisplay();
+		        if (currentItem.fav === 0 && favBtn.classList.contains('correct-color')) {
+		          favBtn.classList.add("incorrect-color");
+		          favBtn.classList.remove("correct-color");
+		        } else if (currentItem.fav === 1 && favBtn.classList.contains('incorrect-color')){
+		          favBtn.classList.remove("incorrect-color");
+		          favBtn.classList.add("correct-color");
+		        }
 			} else {
 			currentQuestionIndex++;
 			}
@@ -765,27 +783,7 @@
 		while (currentQuestionIndex < shuffledVocabularyList.length);
 
 
-        // Create a wrapper for the word and the new pronunciation button
-        wordDisplay.innerHTML = '';
-        const questionText = document.createElement('span');
-        questionText.innerHTML = `${currentItem.question}&nbsp;&nbsp;&nbsp;&nbsp;(${currentItem.word_class})`;
-        wordDisplay.appendChild(questionText);
 
-        answerInput.value = '';
-        feedbackMessage.innerHTML = '';
-
-        checkButton.disabled = false;
-        nextButton.disabled = true;
-        answerInput.focus();
-
-        updateQuestionCountDisplay();
-        if (currentItem.fav === 0 && favBtn.classList.contains('correct-color')) {
-          favBtn.classList.add("incorrect-color");
-          favBtn.classList.remove("correct-color");
-        } else if (currentItem.fav === 1 && favBtn.classList.contains('incorrect-color')){
-          favBtn.classList.remove("incorrect-color");
-          favBtn.classList.add("correct-color");
-        }
       }
 
       /**
@@ -1447,6 +1445,7 @@ OK
         }
 
       };
+
 
 
 
