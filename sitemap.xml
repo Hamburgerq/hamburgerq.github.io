@@ -8,68 +8,79 @@
 
 
 <url>
-  <loc>https://hamburgerq.github.io/</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/language/en/index.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/index.html" />
+  <loc>https://hamburgerq.github.io/volumeup/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/language/en/index.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/index.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://hamburgerq.github.io/language/en/index.html</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/index.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/index.html" />
+  <loc>https://hamburgerq.github.io/volumeup/language/en/index.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/index.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/index.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://hamburgerq.github.io/language/en/download.html</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/language/en/download.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/download.html" />
+  <loc>https://hamburgerq.github.io/volumeup/language/en/download.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/language/en/download.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/download.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://hamburgerq.github.io/language/en/news.html</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/language/en/news.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/news.html" />
+  <loc>https://hamburgerq.github.io/volumeup/language/en/news.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/language/en/news.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/news.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://hamburgerq.github.io/language/en/faq.html</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/language/en/faq.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/faq.html" />
+  <loc>https://hamburgerq.github.io/volumeup/language/en/faq.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/language/en/faq.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/faq.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
 <url>
-  <loc>https://hamburgerq.github.io/language/tc/index.html</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/index.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/index.html" />
+  <loc>https://hamburgerq.github.io/volumeup/language/tc/index.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/index.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/index.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://hamburgerq.github.io/language/tc/download.html</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/language/en/download.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/download.html" />
+  <loc>https://hamburgerq.github.io/volumeup/language/tc/download.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/language/en/download.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/download.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://hamburgerq.github.io/language/tc/news.html</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/language/en/news.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/news.html" />
+  <loc>https://hamburgerq.github.io/volumeup/language/tc/news.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/language/en/news.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/news.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://hamburgerq.github.io/language/tc/faq.html</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/language/en/faq.html" />
-  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/language/tc/faq.html" />
+  <loc>https://hamburgerq.github.io/volumeup/language/tc/faq.html</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://hamburgerq.github.io/volumeup/language/en/faq.html" />
+  <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://hamburgerq.github.io/volumeup/language/tc/faq.html" />
   <lastmod>2025-05-29T07:09:25+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://hamburgerq.github.io/wordmemo/</loc>
+  <lastmod>2025-08-21T10:09:25+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://hamburgerq.github.io/wordmemo/index.html</loc>
+  <lastmod>2025-08-21T10:09:25+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 
 </urlset>
+
