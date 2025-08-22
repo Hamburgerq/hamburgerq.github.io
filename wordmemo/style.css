@@ -38,6 +38,13 @@
         min-height: 100vh;
         background-color: var(--primary-bg-color);
       }
+      .theme-table {
+        background-color: var(--practice-bg-color);
+      }
+      .theme-table-cell {
+        color: var(--primary-text-color);
+        border-color: var(--primary-border-color);
+      }
       .theme-btn {
         color: var(--secondary-text-color);
         background-color: var(--theme-btn-color);

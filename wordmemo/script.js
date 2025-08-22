@@ -61,7 +61,7 @@ const translations = {
     'darkModeLabel': 'Dark mode:',
     'helpLabel': 'Help:',
     'helpList': ["1.Support input and output file format: .xlsx, .csv, .json.",                             								"2.Input file should have 4 columns in a certain sequence: Word, Pronunciation, Your native language, Word class.",
-                 "3.Phone should install text to voice package of prefer language in order to select as pronunciation language.", "4.You can continuosly check answer and go to next question by inputing \"Enter\" key while practicing."],
+                 "3.Phone should install text to voice package of prefer language in order to select as pronunciation language.", "4.You can continuosly check answer and go to next question by input \"Enter\" key while practicing."],
   },
   'zh': {
     'excelFile': '上傳您的單字文件',
@@ -95,7 +95,7 @@ const translations = {
     'darkModeLabel': '深色模式:',
     'helpLabel': '說明:',
     'helpList': ["1.支援匯出、匯入格式: .xlsx, .csv, .json",                             														"2.匯入檔案需依序包含4個欄位: 單字, 發音, 你的母語, 詞性。",
-                 "3.手機使用前須先安裝文字轉語音套件，才可選擇該發音。","4.持續輸入\"Enter\"鍵，可以連續檢查答案及跳至下一題。"],
+                 "3.手機使用前須先安裝文字轉語音套件，才可選擇該發音。","4.持續輸入\"Enter\"鍵，可以連續檢查答案即跳至下一題。"],
   }
 };
 
@@ -1000,7 +1000,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < 4; i++) {
       const newCell = document.createElement('td');
       newCell.contentEditable = 'false'; // Set to false by default
-      newCell.classList.add('px-2', 'py-1', 'break-all', 'text-base', 'text-gray-900', 'border', 'border-black', 'focus:bg-orange-100');
+      newCell.classList.add('theme-table-cell', 'px-2', 'py-1', 'break-all', 'text-base', 'border', 'focus:bg-orange-100');
       newCell.textContent = ''; // Empty content for new cells
       newRow.appendChild(newCell);
     }
@@ -1442,5 +1442,3 @@ function darkModeChecker() {
   }
 
 }
-
-
