@@ -156,8 +156,8 @@
       }
       /* New rule: Apply a custom outline when a content editable cell is focused */
       td[contenteditable="true"]:focus {
-        outline: 4px solid #3b82f6;
-        outline-offset: -4px; /* Pulls the outline in to not affect layout */
+        outline: 2px solid #3b82f6;
+        outline-offset: -2px; /* Pulls the outline in to not affect layout */
       }
       /* Modal overlay styles */
       .modal-overlay {
