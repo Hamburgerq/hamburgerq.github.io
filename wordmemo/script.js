@@ -546,10 +546,10 @@ function handleFileUpload(event) {
         let rawData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
         if (rawData.length > 1 && rawData[0].length >= 2) {
           parsedData = rawData.slice(1).map(row => ({
-            answer: row[0],
-            pronunciation: row[1],
-            question: row[2],
-            word_class: row[3],
+            answer: String(row[0]),
+            pronunciation: String(row[1]),
+            question: String(row[2]),
+            word_class: String(row[3]),
             fav: 0,
             correct: false
           }));
@@ -565,10 +565,10 @@ function handleFileUpload(event) {
           parsedData = rows.slice(1).map(row => {
             const cols = row.split(',');
             return {
-              answer: cols[0] ? cols[0].trim().replace(/"/g,"") : '',
-              pronunciation: cols[1] ? cols[1].trim().replace(/"/g,"") : '',
-              question: cols[2] ? cols[2].trim().replace(/"/g,"") : '',
-              word_class: cols[3] ? cols[3].trim().replace(/"/g,"") : '',
+              answer: String(cols[0]) ? String(cols[0]).trim().replace(/"/g,"") : '',
+              pronunciation: String(cols[1]) ? String(cols[1]).trim().replace(/"/g,"") : '',
+              question: String(cols[2]) ? String(cols[2]).trim().replace(/"/g,"") : '',
+              word_class: String(cols[3]) ? String(cols[3]).trim().replace(/"/g,"") : '',
               fav: 0,
               correct: false
             };
@@ -587,10 +587,10 @@ function handleFileUpload(event) {
             const rowValues = headers.map(header => item[header]);
             return {
               // Use the first four columns based on their order in the JSON object
-              answer: rowValues[0] !== undefined ? String(rowValues[0]).trim() : '',
-              pronunciation: rowValues[1] !== undefined ? String(rowValues[1]).trim() : '',
-              question: rowValues[2] !== undefined ? String(rowValues[2]).trim() : '',
-              word_class: rowValues[3] !== undefined ? String(rowValues[3]).trim() : '',
+              answer: String(rowValues[0]) !== undefined ? String(rowValues[0]).trim() : '',
+              pronunciation: String(rowValues[1]) !== undefined ? String(rowValues[1]).trim() : '',
+              question: String(rowValues[2]) !== undefined ? String(rowValues[2]).trim() : '',
+              word_class: String(rowValues[3]) !== undefined ? String(rowValues[3]).trim() : '',
               fav: 0,
               correct: false
             };
