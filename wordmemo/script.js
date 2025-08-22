@@ -61,7 +61,7 @@ const translations = {
     'darkModeLabel': 'Dark mode:',
     'helpLabel': 'Help:',
     'helpList': ["1.Support input and output file format: .xlsx, .csv, .json.",                             								"2.Input file should have 4 columns in a certain sequence: Word, Pronunciation, Your native language, Word class.",
-                 "3.Phone should install text to voice package of prefer language in order to select as pronunciation language.", "4.You can continuosly check answer and go to next question by input \"Enter\" key while practicing."],
+                 "3.Phone should install text to voice package of prefer language in order to select as pronunciation language.", "4.You can continuosly check answer and go to next question by inputing \"Enter\" key while practicing."],
   },
   'zh': {
     'excelFile': '上傳您的單字文件',
@@ -1442,4 +1442,5 @@ function darkModeChecker() {
   }
 
 }
+
 
