@@ -10,6 +10,7 @@
         --practice-bg-color: #d9fffd; /* practice area background: light blue*/
         --correct-text-color: #00731f;
         --incorrect-text-color: #ff0703;
+        --focus-color:#ffeeba;
       }
 
       .dark {
@@ -23,6 +24,7 @@
         --practice-bg-color: #383838; /* practice area background: dark gray*/
         --correct-text-color: #00e362;
         --incorrect-text-color: #fca7a7;
+        --focus-color:#474747;
       }
 
       html {
@@ -44,6 +46,9 @@
       .theme-table-cell {
         color: var(--primary-text-color);
         border-color: var(--primary-border-color);
+      }
+      .theme-table-cell:focus {
+        background-color: var(--focus-color);
       }
       .theme-btn {
         color: var(--secondary-text-color);

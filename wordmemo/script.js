@@ -1000,7 +1000,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < 4; i++) {
       const newCell = document.createElement('td');
       newCell.contentEditable = 'false'; // Set to false by default
-      newCell.classList.add('theme-table-cell', 'px-2', 'py-1', 'break-all', 'text-base', 'border', 'focus:bg-orange-100');
+      newCell.classList.add('theme-table-cell', 'px-2', 'py-1', 'break-all', 'text-base', 'border');
       newCell.textContent = ''; // Empty content for new cells
       newRow.appendChild(newCell);
     }
