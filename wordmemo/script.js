@@ -387,13 +387,13 @@ function createCheckbox(value, text, isChecked) {
   checkbox.type = 'checkbox';
   checkbox.value = value;
   checkbox.id = `word-class-${value}`;
-  checkbox.className = 'mr-2 focus:ring-fuchsia-700';
+  checkbox.className = 'w-6 h-6 mr-2 focus:ring-fuchsia-700';
   checkbox.checked = isChecked;
 
   const label = document.createElement('label');
   label.htmlFor = `word-class-${value}`;
   label.textContent = text;
-  label.className = 'flex-grow cursor-pointer';
+  label.className = 'text-2xl flex-grow cursor-pointer';
 
   wrapper.appendChild(checkbox);
   wrapper.appendChild(label);
