@@ -809,12 +809,12 @@ function checkAnswer() {
   const feedbackTextSpan = document.createElement('span');
 
   if (userAnswer === correctAnswer) {
-    feedbackMessage.className = 'mt-4 text-2xl font-semibold correct-color flex items-center justify-center';
+    feedbackMessage.className = 'mt-4 text-2xl font-semibold correct-color flex items-center justify-center break-all';
     feedbackTextSpan.innerHTML = `${translations[currentLang]['correct_prefix']}<br>${currentItem.answer} `;
     totalQuestionsAnswered++;
     currentItem.correct = true;
   } else {
-    feedbackMessage.className = 'mt-4 text-2xl font-semibold incorrect-color flex items-center justify-center';
+    feedbackMessage.className = 'mt-4 text-2xl font-semibold incorrect-color flex items-center justify-center break-all';
     feedbackTextSpan.innerHTML = `${translations[currentLang]['incorrect_message']}<br>${currentItem.answer} (${currentItem.pronunciation})`;
     currentItem.correct = false;
   }
