@@ -115,7 +115,7 @@
             z-index: 10000;
             overflow: hidden;
             border: 1px solid #e5e7eb;
-            min-width: 180px;
+            min-width: 220px;
             transform: translate(-50%, -100%);
             margin-top: -12px;
             pointer-events: auto;
@@ -124,17 +124,17 @@
         #globalActionPopup.active { display: flex; }
 
         .check-mark {
-            margin-left: auto;
             color: #10b981;
             font-weight: bold;
         }
 
-        /* Prevent text selection during fast navigation long-press */
+        /* Prevent text selection and zoom issues during fast navigation */
         .no-select {
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            touch-action: manipulation; 
         }
     </style>
 </head>
@@ -181,7 +181,6 @@
                     <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
                         <h2 id="currentMonthYear" class="text-2xl font-bold text-gray-800">Month Year</h2>
                         <div class="flex items-center gap-2">
-                            <!-- New Today Button -->
                             <button id="todayBtn" class="bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 px-4 py-2 rounded-full font-bold text-sm transition-all shadow-sm">Today</button>
                             
                             <div class="flex gap-2">
@@ -207,15 +206,35 @@
 
     <!-- Global Action Popup -->
     <div id="globalActionPopup">
-        <button id="btnMorning" class="px-5 py-3 hover:bg-emerald-50 text-emerald-800 font-semibold flex items-center gap-3 border-b">
-            <span>🌅</span> Morning <span id="checkMorning" class="check-mark hidden">✓</span>
-        </button>
-        <button id="btnAfternoon" class="px-5 py-3 hover:bg-emerald-50 text-emerald-800 font-semibold flex items-center gap-3 border-b">
-            <span>🌇</span> Afternoon <span id="checkAfternoon" class="check-mark hidden">✓</span>
-        </button>
-        <button id="btnClearAll" class="px-5 py-3 hover:bg-red-50 text-red-600 font-semibold flex items-center gap-3">
+        <div class="flex items-stretch border-b border-gray-100 bg-white">
+            <button id="btnMorning" class="flex-1 px-5 py-3 hover:bg-emerald-50 text-emerald-800 font-semibold flex items-center justify-between gap-3 transition-colors">
+                <div class="flex items-center gap-3"><span>🌅</span> Morning</div>
+                <span id="checkMorning" class="check-mark hidden">✓</span>
+            </button>
+            <button id="btnNoteMorning" class="hidden px-4 hover:bg-emerald-50 text-gray-400 hover:text-emerald-600 transition-colors border-l border-gray-100 flex items-center justify-center text-lg outline-none" title="Add/Edit Note">📝</button>
+        </div>
+        <div class="flex items-stretch border-b border-gray-100 bg-white">
+            <button id="btnAfternoon" class="flex-1 px-5 py-3 hover:bg-emerald-50 text-emerald-800 font-semibold flex items-center justify-between gap-3 transition-colors">
+                <div class="flex items-center gap-3"><span>🌇</span> Afternoon</div>
+                <span id="checkAfternoon" class="check-mark hidden">✓</span>
+            </button>
+            <button id="btnNoteAfternoon" class="hidden px-4 hover:bg-emerald-50 text-gray-400 hover:text-emerald-600 transition-colors border-l border-gray-100 flex items-center justify-center text-lg outline-none" title="Add/Edit Note">📝</button>
+        </div>
+        <button id="btnClearAll" class="w-full px-5 py-3 hover:bg-red-50 text-red-600 font-semibold flex items-center gap-3 transition-colors bg-white">
             <span>❌</span> Clear Day
         </button>
+    </div>
+
+    <!-- Note Modal -->
+    <div id="noteModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[105]">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
+            <h3 id="noteModalTitle" class="text-xl font-bold text-gray-800 mb-4">Watering Note</h3>
+            <textarea id="wateringNoteText" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none resize-none" placeholder="Add some notes here (e.g., added fertilizer, pruned dead leaves...)"></textarea>
+            <div class="flex gap-3 mt-6">
+                <button type="button" onclick="closeNoteModal()" class="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors">Cancel</button>
+                <button type="button" onclick="saveNote()" class="flex-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium shadow-md transition-colors">Save Note</button>
+            </div>
+        </div>
     </div>
 
     <!-- Plant Entry Modal -->
@@ -240,8 +259,8 @@
                     </div>
                 </div>
                 <div class="flex gap-3 mt-8">
-                    <button type="button" onclick="closePlantModal()" class="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium">Cancel</button>
-                    <button type="submit" class="flex-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium shadow-md">Save</button>
+                    <button type="button" onclick="closePlantModal()" class="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg font-medium transition-colors">Cancel</button>
+                    <button type="submit" class="flex-1 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium shadow-md transition-colors">Save</button>
                 </div>
             </form>
         </div>
@@ -253,7 +272,7 @@
             <h3 class="text-2xl font-bold mb-6">Manage Collection</h3>
             <div id="manageList" class="space-y-3 overflow-y-auto pr-2 pb-4"></div>
             <div class="mt-4 pt-4 border-t border-gray-100 flex justify-end">
-                <button onclick="toggleModal('manageModal', false)" class="px-6 py-2 bg-gray-800 text-white rounded-lg font-medium hover:bg-black">Done</button>
+                <button onclick="toggleModal('manageModal', false)" class="px-6 py-2 bg-gray-800 text-white rounded-lg font-medium hover:bg-black transition-colors">Done</button>
             </div>
         </div>
     </div>
@@ -265,6 +284,7 @@
         let currentDate = new Date();
         let selectedDateStr = null;
         let draggedPlantIndex = null;
+        let editingNoteData = { index: null, time: null };
 
         const defaultPalette = [
             '#10b981', '#059669', '#065f46', 
@@ -286,7 +306,6 @@
         const colorInput = document.getElementById('plantColor');
         const hexLabel = document.getElementById('hexLabel');
 
-        // Navigation fast-scroll state
         let scrollTimer = null;
         let scrollInterval = null;
 
@@ -331,7 +350,6 @@
                 renderManageList();
             };
 
-            // Today button handler
             document.getElementById('todayBtn').onclick = () => {
                 goToToday();
                 showToast("Jumped to Today");
@@ -401,11 +419,11 @@
 
         function rgbToHex(rgb) {
             if (rgb.startsWith('#')) return rgb;
-            const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-            if (!match) return '#000000';
-            const r = parseInt(match[1]).toString(16).padStart(2, '0');
-            const g = parseInt(match[2]).toString(16).padStart(2, '0');
-            const b = parseInt(match[3]).toString(16).padStart(2, '0');
+            const match = rgb.match(/\d+/g);
+            if (!match || match.length < 3) return '#000000';
+            const r = parseInt(match[0]).toString(16).padStart(2, '0');
+            const g = parseInt(match[1]).toString(16).padStart(2, '0');
+            const b = parseInt(match[2]).toString(16).padStart(2, '0');
             return `#${r}${g}${b}`;
         }
 
@@ -454,8 +472,13 @@
                     </div>
                     <div class="flex flex-col items-end gap-1">
                         ${sessionText ? `<span class="text-emerald-600 text-sm font-bold">${sessionText}</span>` : ''}
-                        <div class="flex gap-1">
-                            ${records.map(r => r.time === 'morning' ? '🌅' : '🌇').join(' ')}
+                        <div class="flex gap-1.5">
+                            ${records.map(r => `
+                                <div class="flex items-center gap-0.5 ${r.note ? 'cursor-help' : ''}" title="${r.note ? r.note.replace(/"/g, '&quot;') : ''}">
+                                    <span class="text-lg">${r.time === 'morning' ? '🌅' : '🌇'}</span>
+                                    ${r.note ? '<span class="text-xs drop-shadow-sm text-gray-600 relative top-1">📝</span>' : ''}
+                                </div>
+                            `).join('')}
                         </div>
                     </div>
                 `;
@@ -469,15 +492,48 @@
             globalPopup.style.top = `${rect.top}px`;
             globalPopup.classList.add('active');
 
-            const hasMorning = currentRecords.some(r => r.time === 'morning');
-            const hasAfternoon = currentRecords.some(r => r.time === 'afternoon');
-
-            document.getElementById('checkMorning').classList.toggle('hidden', !hasMorning);
-            document.getElementById('checkAfternoon').classList.toggle('hidden', !hasAfternoon);
+            updatePopupState(index);
 
             document.getElementById('btnMorning').onclick = (e) => { e.stopPropagation(); toggleWatering(index, 'morning'); };
             document.getElementById('btnAfternoon').onclick = (e) => { e.stopPropagation(); toggleWatering(index, 'afternoon'); };
             document.getElementById('btnClearAll').onclick = (e) => { e.stopPropagation(); toggleWatering(index, null); };
+
+            document.getElementById('btnNoteMorning').onclick = (e) => { e.stopPropagation(); openNoteModal(index, 'morning'); };
+            document.getElementById('btnNoteAfternoon').onclick = (e) => { e.stopPropagation(); openNoteModal(index, 'afternoon'); };
+        }
+
+        function updatePopupState(index) {
+            const plant = plants[index];
+            const currentRecords = (plant.wateringRecords || []).filter(r => r.date === selectedDateStr);
+            
+            const morningRec = currentRecords.find(r => r.time === 'morning');
+            const afternoonRec = currentRecords.find(r => r.time === 'afternoon');
+
+            document.getElementById('checkMorning').classList.toggle('hidden', !morningRec);
+            document.getElementById('checkAfternoon').classList.toggle('hidden', !afternoonRec);
+            
+            const btnNoteMorning = document.getElementById('btnNoteMorning');
+            const btnNoteAfternoon = document.getElementById('btnNoteAfternoon');
+
+            btnNoteMorning.classList.toggle('hidden', !morningRec);
+            btnNoteAfternoon.classList.toggle('hidden', !afternoonRec);
+
+            // Highlight note button if a note actually exists
+            if(morningRec && morningRec.note) {
+                btnNoteMorning.classList.add('text-emerald-600', 'bg-emerald-50');
+                btnNoteMorning.classList.remove('text-gray-400');
+            } else {
+                btnNoteMorning.classList.add('text-gray-400');
+                btnNoteMorning.classList.remove('text-emerald-600', 'bg-emerald-50');
+            }
+
+            if(afternoonRec && afternoonRec.note) {
+                btnNoteAfternoon.classList.add('text-emerald-600', 'bg-emerald-50');
+                btnNoteAfternoon.classList.remove('text-gray-400');
+            } else {
+                btnNoteAfternoon.classList.add('text-gray-400');
+                btnNoteAfternoon.classList.remove('text-emerald-600', 'bg-emerald-50');
+            }
         }
 
         function toggleWatering(index, time) {
@@ -487,23 +543,55 @@
             if (time === null) {
                 plant.wateringRecords = plant.wateringRecords.filter(r => r.date !== selectedDateStr);
                 showToast("Records cleared.");
+                closeGlobalPopup();
             } else {
                 const exists = plant.wateringRecords.find(r => r.date === selectedDateStr && r.time === time);
                 if (exists) {
                     plant.wateringRecords = plant.wateringRecords.filter(r => !(r.date === selectedDateStr && r.time === time));
                 } else {
-                    plant.wateringRecords.push({ date: selectedDateStr, time: time });
+                    plant.wateringRecords.push({ date: selectedDateStr, time: time, note: "" });
                     showToast(`${time.charAt(0).toUpperCase() + time.slice(1)} logged!`);
                 }
+                updatePopupState(index);
             }
 
             saveData();
             renderPlants();
             renderCalendar();
+        }
+
+        function openNoteModal(index, time) {
+            closeGlobalPopup();
+            editingNoteData = { index, time };
+            const plant = plants[index];
+            const record = plant.wateringRecords.find(r => r.date === selectedDateStr && r.time === time);
             
-            const newRecords = plant.wateringRecords.filter(r => r.date === selectedDateStr);
-            document.getElementById('checkMorning').classList.toggle('hidden', !newRecords.some(r => r.time === 'morning'));
-            document.getElementById('checkAfternoon').classList.toggle('hidden', !newRecords.some(r => r.time === 'afternoon'));
+            document.getElementById('noteModalTitle').innerText = `${time.charAt(0).toUpperCase() + time.slice(1)} Notes: ${plant.name}`;
+            document.getElementById('wateringNoteText').value = record.note || '';
+            
+            toggleModal('noteModal', true);
+            // Autofocus text area
+            setTimeout(() => document.getElementById('wateringNoteText').focus(), 50);
+        }
+
+        function closeNoteModal() {
+            toggleModal('noteModal', false);
+            editingNoteData = { index: null, time: null };
+        }
+
+        function saveNote() {
+            if (editingNoteData.index === null) return;
+            const { index, time } = editingNoteData;
+            const plant = plants[index];
+            const record = plant.wateringRecords.find(r => r.date === selectedDateStr && r.time === time);
+            
+            if (record) {
+                record.note = document.getElementById('wateringNoteText').value.trim();
+                saveData();
+                renderPlants();
+                showToast("Note saved!");
+            }
+            closeNoteModal();
         }
 
         function closeGlobalPopup() {
@@ -516,7 +604,7 @@
             const month = currentDate.getMonth();
             const today = getFormattedDate(new Date());
             
-            const monthNames = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             monthYearEl.innerText = `${year}. ${monthNames[month]}`;
 
             const first = new Date(year, month, 1).getDay();
@@ -630,10 +718,14 @@
                         }
 
                         if (!plant.wateringRecords) plant.wateringRecords = [];
-                        const alreadyExists = plant.wateringRecords.some(r => r.date === row.Date && r.time === row.Time.toLowerCase());
-                        if (!alreadyExists) {
-                            plant.wateringRecords.push({ date: row.Date, time: row.Time.toLowerCase() });
+                        const existingRecord = plant.wateringRecords.find(r => r.date === row.Date && r.time === row.Time.toLowerCase());
+                        
+                        if (!existingRecord) {
+                            plant.wateringRecords.push({ date: row.Date, time: row.Time.toLowerCase(), note: row.Note || '' });
                             importedCount++;
+                        } else if (row.Note && !existingRecord.note) {
+                            // Only update note if missing
+                            existingRecord.note = row.Note;
                         }
                     });
 
@@ -654,7 +746,7 @@
             plants.forEach(p => {
                 if (p.wateringRecords) {
                     p.wateringRecords.forEach(r => {
-                        data.push({ Plant: p.name, Date: r.date, Time: r.time, Color: p.color });
+                        data.push({ Plant: p.name, Date: r.date, Time: r.time, Note: r.note || '', Color: p.color });
                     });
                 }
             });
@@ -695,8 +787,11 @@
                 div.ondragstart = () => { draggedPlantIndex = index; div.classList.add('opacity-50'); };
                 div.ondragend = () => { draggedPlantIndex = null; div.classList.remove('opacity-50'); };
                 div.ondragover = (e) => e.preventDefault();
+                div.ondragenter = () => div.classList.add('border-emerald-500');
+                div.ondragleave = () => div.classList.remove('border-emerald-500');
                 div.ondrop = (e) => {
                     e.preventDefault();
+                    div.classList.remove('border-emerald-500');
                     if (draggedPlantIndex !== null && draggedPlantIndex !== index) reorderPlants(draggedPlantIndex, index);
                 };
                 manageListEl.appendChild(div);
